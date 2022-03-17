@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Statistikk fra Mattilsynet </title>
+        <script src="https://kit.fontawesome.com/c7f6468cbc.js" crossorigin="anonymous"></script>
+        <style>
+            .searchtool{float: left;padding-left: 5em; padding-top: 2.5em;}
+            .searchtool .form-group{float: left; padding: 10em;}
+            .searchtool input{padding: 5px; font-size: 17px;}
+            .searchtool button{padding: 8px;}
+        </style>
+    </head>
+    <body>
+        <center>
+            <div class="searchtool">
+                <form action="/search" method="POST">
+                    <div class="form-group">
+                        <input type="search" placeholder="Søk.." id="query" name="q">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>   
+                
+            </div>
+        </center>
+        
+    </body>
+</html>
