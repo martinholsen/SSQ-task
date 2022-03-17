@@ -1,6 +1,6 @@
 author: Martin H. Olsen
 
-# This project is to be used as a Talent Assessment of its author
+# This project is to be used as a talent assessment of its author
 
 I have chosen to answer the task using python as it is the programming language I am currently most familiar with. It
 might not be the ideal programming language for developing an app but it should suffice.
@@ -21,3 +21,11 @@ package we will be using. To create the enviornment we now type 'python -m venv 
 To setup the project simply navigate out of the folder and type in the following command 'export FLASK_APP=project_name' 
 or 'set FLASK_APP=project_name' if you are running this on windows. To run the project now simply run 
 'flask run' and it should work.
+
+## Flask SQLAlchemy DB
+
+In this project the database is manually created by opening inline python and executing two lines of code:
+"""
+from folder-/project-name import db, create_app
+db.create_all(app=create_app())
+"""

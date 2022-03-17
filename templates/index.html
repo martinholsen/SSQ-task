@@ -1,1 +1,29 @@
-<h1>Homepage</h1>
+{% extends "base.html" %} {% block head %} {{ super() }}
+<link 
+    rel="stylesheet" 
+    href="{{ url_for('static', filename='extended_beauty.css')}}"
+/>
+{% endblock %} {% block content %} 
+<h1>Hei! </h1>
+<p>Bruk søkefeltet for å se mattilsynets vurdering av din favoritt restaurant!</p>
+
+<div class="form-group" style="padding-left: 20%; padding-right: 20%; padding-bottom: 10%; padding-top: 0%;">
+    <form method="POST" action="/">
+        <div class="input-group">
+            <input
+                type="search"
+                class="form-control"
+                id="query"
+                name="query"
+                aria-describedby="search"
+                placeholder="Søk.."
+                style="width: 90%;"
+            />
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary">Søk</button>
+            </span>
+        </div>   
+    </form>
+</div>
+
+{% endblock %}

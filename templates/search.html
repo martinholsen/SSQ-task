@@ -1,28 +1,44 @@
+{% extends "base.html" %} {% block head %} {{ super() }}
+<link 
+    rel="stylesheet" 
+    href="{{ url_for('static', filename='extended_beauty.css')}}"
+/>
+{% endblock %} {% block content %} 
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title> Statistikk fra Mattilsynet </title>
-        <script src="https://kit.fontawesome.com/c7f6468cbc.js" crossorigin="anonymous"></script>
-        <style>
-            .searchtool{float: left;padding-left: 5em; padding-top: 2.5em;}
-            .searchtool .form-group{float: left; padding: 10em;}
-            .searchtool input{padding: 5px; font-size: 17px;}
-            .searchtool button{padding: 8px;}
-        </style>
-    </head>
-    <body>
-        <center>
-            <div class="searchtool">
-                <form action="/search" method="POST">
-                    <div class="form-group">
-                        <input type="search" placeholder="Søk.." id="query" name="q">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </div>
-                </form>   
-                
-            </div>
-        </center>
-        
-    </body>
-</html>
+<div class="form-group" style="padding-left: 20%; padding-right: 20%; padding-bottom: 0%; padding-top: 6%;">
+    <form method="POST" action="/search">
+        <div class="input-group">
+            <input
+                type="search"
+                class="form-control"
+                id="query"
+                name="query"
+                aria-describedby="search"
+                placeholder="Søk.."
+                style="width: 90%;"
+            />
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary">Søk</button>
+            </span>
+        </div>   
+    </form>
+</div>
+
+<div>
+    <table class="table table-hover" style="width: 90em; margin-left: auto; margin-right: auto;">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Navn</th>
+                <th scope="col">Tlf</th>
+                <th scope="col">Fylke</th>
+                <th scope="col">Rutiner og ledelse</th>
+                <th scope="col">Lokaler og utstyr</th>
+                <th scope="col">Mathåndtering og tilberedning</th>
+                <th scope="col">Merking og sporbarhet</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+
+{% endblock %}
