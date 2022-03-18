@@ -2,6 +2,7 @@ from flask import Blueprint, redirect, render_template, url_for, request
 import requests
 import pandas as pd
 import io
+from itertools import islice
 
 
 main = Blueprint('main', __name__)
@@ -52,8 +53,8 @@ def index_post():
             if restaurants.get(navn).get('dato') > dato:    # If an entry with the same name and older date is found ignore it
                 continue    
         
-        tempdict = {'dato': dato, 'Tlf': tlf, 'Fylke': fylke, 'Karakter-1': k1, 'Karakter-2': k2, 'Karakter-3': k3, 'Karakter-4': k4,
-        'Total': tot}
+        tempdict = {'dato': dato, 'Tlf': tlf, 'Fylke': fylke, 'Karakter-1': k1,
+        'Karakter-2': k2, 'Karakter-3': k3, 'Karakter-4': k4, 'Total': tot}
         restaurants.update({navn: tempdict})    # Restaurants dict is updated and is a dictonary with key: value pairs of restaurant names and relevant info
         
         
@@ -107,8 +108,8 @@ def search_post():
             if restaurants.get(navn).get('dato') > dato:    # If an entry with the same name and older date is found ignore it
                 continue                                    
         
-        tempdict = {'dato': dato, 'Tlf': tlf, 'Fylke': fylke, 'Karakter-1': k1, 'Karakter-2': k2, 'Karakter-3': k3, 'Karakter-4': k4,
-        'Total': tot}
+        tempdict = {'dato': dato, 'Tlf': tlf, 'Fylke': fylke, 'Karakter-1': k1,
+        'Karakter-2': k2, 'Karakter-3': k3, 'Karakter-4': k4, 'Total': tot}
         restaurants.update({navn: tempdict})    # Restaurants dict is updated and is a dictonary with key: value pairs of restaurant names and relevant info
 
     return render_template('search.html', restaurants=restaurants)
@@ -121,6 +122,7 @@ def create_restaurants():   # Make global buffer
 def clear_restaurants():    # Clear buffer
     if 'restaurants' in globals():
         restaurants.clear()
+    
 
 def scale_score(score=None):    # Convert int score to readable assessment
     if not score.isdigit():
