@@ -5,6 +5,9 @@ author: Martin H. Olsen
 I have chosen to answer the task using python as it is the programming language I am currently most familiar with. It
 might not be the ideal programming language for developing an app but it should suffice.
 
+Initially the idea was to implement a SQLAlchemy database to store the data locally but this was dropped after the
+author better understood the assignment. The data is now taken directly from the online database through url request and query.
+
 ## webapp enviornment setup
 
 To avoid issues with downloading dependencies locally we first create an environment. The environment should have already
@@ -22,6 +25,8 @@ To setup the project simply navigate out of the folder and type in the following
 or 'set FLASK_APP=project_name' if you are running this on windows. To run the project now simply run 
 'flask run' and it should work.
 
+# Deprecated section
+
 ## Flask SQLAlchemy DB
 
 In this project the database is manually created by opening inline python and executing two lines of code:
@@ -29,3 +34,4 @@ In this project the database is manually created by opening inline python and ex
 from folder-/project-name import db, create_app
 db.create_all(app=create_app())
 """
+

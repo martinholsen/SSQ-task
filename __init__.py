@@ -1,4 +1,6 @@
 from flask import Flask
+
+# Initially implemented db for data storage. Deprecated.
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()

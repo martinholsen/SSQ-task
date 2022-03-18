@@ -35,9 +35,25 @@
                 <th scope="col">Lokaler og utstyr</th>
                 <th scope="col">Mathåndtering og tilberedning</th>
                 <th scope="col">Merking og sporbarhet</th>
+                <th scope="col">Total Vurdering</th>
             </tr>
         </thead>
+        <tbody>
+            {% for name, info in restaurants.items() %}
+            <tr>
+                <td>{{ name }}</td>
+                <td>{{ info.get('Tlf') }}</td>
+                <td>{{ info.get('Fylke') }}</td>
+                <td>{{ info.get('Karakter-1') }}</td>
+                <td>{{ info.get('Karakter-2') }}</td>
+                <td>{{ info.get('Karakter-3') }}</td>
+                <td>{{ info.get('Karakter-4') }}</td>
+                <td>{{ info.get('Total')}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
+    {% for page_num in %}
 </div>
 
 
